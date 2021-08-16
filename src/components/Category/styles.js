@@ -6,6 +6,13 @@ export const Anchor = styled.a`
   text-align: center;
   text-decoration: none;
   width: 75px;
+  transition: transform 0.35s ease;
+  padding: 10px 0;
+  overflow-y: hidden;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const Image = styled.img`
