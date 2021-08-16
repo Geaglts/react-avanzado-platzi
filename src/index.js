@@ -1,5 +1,5 @@
-import React from "react";
-import { render } from "react-dom";
+import React from 'react';
+import { render } from 'react-dom';
 
 const Home = () => {
   return (
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-render(<Home />, document.getElementById("root"));
+render(<Home />, document.getElementById('root'));
