@@ -1,12 +1,13 @@
 import React from 'react';
-import { Category } from './components/Category';
-import GlobalStyles from './globalStyles';
+import { ListOfcategories } from './components/ListOfCategories';
+import { GlobalStyle } from './GlobalStyles';
 
 const App = () => {
   return (
-    <div>
-      <Category emogi="🐈" />
-    </div>
+    <>
+      <GlobalStyle />
+      <ListOfcategories />
+    </>
   );
 };
 
