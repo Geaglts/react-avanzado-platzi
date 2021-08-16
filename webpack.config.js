@@ -6,5 +6,19 @@ module.exports = {
     filename: "app.bundle.js",
   },
   mode: "development",
-  plugins: [new HTMLWebpackPlugin()],
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: "./public/index.html",
+      filename: "index.html",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+    ],
+  },
 };
