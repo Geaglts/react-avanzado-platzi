@@ -12,7 +12,6 @@ const fadeInKeyframes = keyframes`
 `;
 
 const downKeyframes = ({ scale }) => {
-  console.log(scale);
   return keyframes`
     from {
       transform: translateY(-100px) scale(${scale});
