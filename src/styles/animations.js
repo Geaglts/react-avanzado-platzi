@@ -11,7 +11,23 @@ const fadeInKeyframes = keyframes`
     }
 `;
 
+const downKeyframes = ({ scale }) => {
+  console.log(scale);
+  return keyframes`
+    from {
+      transform: translateY(-100px) scale(${scale});
+    }
+    to {
+      transform: translateY(0px) scale(${scale});
+    }
+  `;
+};
+
 export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
   css`
     animation: ${fadeInKeyframes} ${time} ${type};
   `;
+
+export const down = ({ time = '1s', type = 'ease', scale = 1 } = {}) => css`
+  animation: ${downKeyframes({ scale })} ${time} ${type} forwards;
+`;
