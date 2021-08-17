@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Category } from '../Category';
 import { List, Item } from './styles';
-import { categories as mockCategories } from '../../../api/db.json';
 
 export const ListOfcategories = () => {
-  const [categories, setCategories] = useState(mockCategories);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('https://petgram-server-geaglts.vercel.app/categories')
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
+
   return (
     <List>
       {categories.map((cateogry) => (
