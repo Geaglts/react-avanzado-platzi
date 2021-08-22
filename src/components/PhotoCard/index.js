@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { Button, ImgWrapper, Article } from './styles';
+import { useNearScreen } from '../../hooks/useNearScreen';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const DEFAULT_IMAGE =
@@ -8,26 +9,8 @@ const DEFAULT_IMAGE =
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const key = `liked - ${id}`;
-  const [show, setShow] = useState(false);
+  const [show, element] = useNearScreen();
   const [liked, setLiked] = useLocalStorage(key, false);
-  const element = useRef(null);
-
-  useEffect(() => {
-    Promise.resolve(
-      typeof window.IntersectionObserver !== 'undefined'
-        ? window.IntersectionObserver
-        : import('intersection-observer')
-    ).then(() => {
-      const observer = new window.IntersectionObserver((entries) => {
-        const { isIntersecting } = entries[0];
-        if (isIntersecting) {
-          setShow(isIntersecting);
-          observer.disconnect();
-        }
-      });
-      observer.observe(element.current);
-    });
-  }, [element]);
 
   const Icon = liked ? MdFavorite : MdFavoriteBorder;
 
