@@ -1,9 +1,10 @@
 import React from 'react';
-import { ListOfcategories } from './components/ListOfCategories';
-import { ListOfPhotoCards } from './components/ListOfPhotoCards';
 import { Logo } from './components/Logo';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { PhotoCardWithQuery } from './components/PhotoCardWithQuery';
+
+// Pages
+import { Home } from './pages/Home';
 
 const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
@@ -13,14 +14,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Logo />
-      {detailId ? (
-        <PhotoCardWithQuery detailId={detailId} />
-      ) : (
-        <>
-          <ListOfcategories />
-          <ListOfPhotoCards categoryId={2} />
-        </>
-      )}
+      {detailId ? <PhotoCardWithQuery detailId={detailId} /> : <Home />}
     </>
   );
 };
