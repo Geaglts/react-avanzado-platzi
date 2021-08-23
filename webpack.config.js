@@ -1,15 +1,15 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   output: {
-    filename: "app.bundle.js",
+    filename: 'app.bundle.js',
+    publicPath: '/',
   },
-  mode: "development",
+  mode: 'development',
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: './public/index.html',
+      filename: 'index.html',
     }),
   ],
   module: {
@@ -17,8 +17,15 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
     ],
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: {
+      disableDotRule: true,
+    },
+    liveReload: true,
   },
 };

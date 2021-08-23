@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
+import { Link } from '@reach/router';
 
 import { FavButton } from '../FavButton';
 
@@ -30,11 +31,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/details/${id}`}>
             <ImgWrapper>
               <img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
           <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
       )}

@@ -20,6 +20,7 @@ function useCategoriesData() {
 export const ListOfcategories = () => {
   const { categories, loading } = useCategoriesData();
   const [showFixed, setShowFixed] = useState(false);
+
   useEffect(() => {
     const onScroll = (e) => {
       const newShowFixed = window.scrollY > 200;
@@ -36,7 +37,7 @@ export const ListOfcategories = () => {
       ) : (
         categories.map((cateogry) => (
           <Item key={cateogry.id}>
-            <Category {...cateogry} />
+            <Category {...cateogry} path={`/pet/${cateogry.id}`} />
           </Item>
         ))
       )}

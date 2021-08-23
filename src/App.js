@@ -1,20 +1,23 @@
 import React from 'react';
+import { Router } from '@reach/router';
+
 import { Logo } from './components/Logo';
 import { GlobalStyle } from './styles/GlobalStyles';
-import { PhotoCardWithQuery } from './components/PhotoCardWithQuery';
 
 // Pages
 import { Home } from './pages/Home';
+import { Details } from './pages/Details';
 
 const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search);
-  const detailId = urlParams.get('detail');
-
   return (
     <>
       <GlobalStyle />
       <Logo />
-      {detailId ? <PhotoCardWithQuery detailId={detailId} /> : <Home />}
+      <Router>
+        <Home path="/" />
+        <Home path="/pet/:id" />
+        <Details path="/details/:detailId" />
+      </Router>
     </>
   );
 };
