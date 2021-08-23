@@ -39,6 +39,7 @@ export const NotRegisterUser = () => {
     const variables = { input };
     try {
       setLoginLoading(true);
+      setLoginError(null);
       const { data } = await login({ variables });
       const token = data.login;
       console.log(token);
