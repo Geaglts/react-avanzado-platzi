@@ -18,6 +18,9 @@ export const Input = styled.input`
   margin: 5px 0;
   padding: 0 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  &[disabled] {
+    opacity: 0.5;
+  }
 `;
 
 export const Button = styled.button`
@@ -33,4 +36,15 @@ export const Button = styled.button`
     transition: background-color 350ms ease;
     background-color: #42bff5;
   }
+  &[disabled] {
+    cursor: default;
+    background-color: #4287f5;
+    opacity: 0.5;
+  }
+`;
+
+export const Error = styled.span`
+  text-align: center;
+  padding: 10px 0;
+  color: #ed462f;
 `;

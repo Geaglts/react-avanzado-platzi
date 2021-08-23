@@ -9,3 +9,15 @@ export const LIKE_PHOTO = gql`
     }
   }
 `;
+
+export const SIGN_UP = gql`
+  mutation ($input: UserCredentials!) {
+    signup(input: $input)
+  }
+`;
+
+export const LOGIN = gql`
+  mutation ($input: UserCredentials!) {
+    login(input: $input)
+  }
+`;
