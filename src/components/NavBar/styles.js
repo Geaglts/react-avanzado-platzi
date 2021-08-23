@@ -36,7 +36,7 @@ export const Link = styled(LinkRouter)`
       position: absolute;
       bottom: 0;
       font-size: 24pt;
-      margin-left: -17px;
+      margin-left: -16px;
     }
   }
 `;
