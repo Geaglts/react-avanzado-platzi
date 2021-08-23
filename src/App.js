@@ -4,6 +4,8 @@ import { Router } from '@reach/router';
 import { Logo } from './components/Logo';
 import { GlobalStyle } from './styles/GlobalStyles';
 
+import Context from './Context';
+
 import { NavBar } from './components/NavBar';
 
 // Pages
@@ -12,10 +14,6 @@ import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { NotRegisterUser } from './pages/NotRegisterUser';
 import { Details } from './pages/Details';
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false });
-};
 
 const App = () => {
   return (
@@ -28,7 +26,7 @@ const App = () => {
 
         <Details path="/details/:detailId" />
       </Router>
-      <UserLogged>
+      <Context.Consumer>
         {({ isAuth }) => {
           return isAuth ? (
             <Router>
@@ -42,7 +40,7 @@ const App = () => {
             </Router>
           );
         }}
-      </UserLogged>
+      </Context.Consumer>
       <NavBar />
     </>
   );
