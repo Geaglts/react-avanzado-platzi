@@ -8,6 +8,7 @@ import { ALL_PHOTOS } from '../../graphql/queries';
 export const ListOfPhotoCards = ({ categoryId = 1 }) => {
   const { data: { photos = [] } = {}, loading } = useQuery(ALL_PHOTOS, {
     variables: { categoryId },
+    fetchPolicy: 'cache-and-network',
   });
 
   if (loading) return <Loading />;
