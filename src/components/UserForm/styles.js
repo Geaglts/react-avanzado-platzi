@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Form = styled.form`
   display: flex;
@@ -41,6 +41,17 @@ export const Button = styled.button`
     background-color: #4287f5;
     opacity: 0.5;
   }
+  ${(props) =>
+    props.red &&
+    css`
+      background-color: #eb3461;
+    `}
+  ${(props) =>
+    props.only &&
+    css`
+      border-radius: 3px;
+      padding: 0 20px;
+    `}
 `;
 
 export const Error = styled.span`

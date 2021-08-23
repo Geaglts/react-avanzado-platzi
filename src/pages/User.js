@@ -1,5 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../Context';
+
+import { HeaderSection } from '../components/HeaderSection';
+
+import { Button } from '../components/UserForm/styles';
 
 export const User = () => {
-  return <h1>User</h1>;
+  const { removeAuth } = useContext(Context);
+
+  const removeSession = () => {
+    removeAuth();
+  };
+
+  return (
+    <>
+      <HeaderSection title="Perfil" description="Bienvenido a tu perfil" />
+      <Button only red onClick={removeSession}>
+        Cerrar sesion
+      </Button>
+    </>
+  );
 };
