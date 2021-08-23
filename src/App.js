@@ -4,6 +4,8 @@ import { Router } from '@reach/router';
 import { Logo } from './components/Logo';
 import { GlobalStyle } from './styles/GlobalStyles';
 
+import { NavBar } from './components/NavBar';
+
 // Pages
 import { Home } from './pages/Home';
 import { Details } from './pages/Details';
@@ -18,6 +20,7 @@ const App = () => {
         <Home path="/pet/:id" />
         <Details path="/details/:detailId" />
       </Router>
+      <NavBar />
     </>
   );
 };
