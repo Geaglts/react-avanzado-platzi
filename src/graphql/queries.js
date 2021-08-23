@@ -12,3 +12,15 @@ export const ALL_PHOTOS = gql`
     }
   }
 `;
+
+export const GET_FAVS = gql`
+  query {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      liked
+    }
+  }
+`;
