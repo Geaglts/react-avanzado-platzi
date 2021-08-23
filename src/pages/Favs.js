@@ -7,7 +7,9 @@ import { Loading } from '../components/Loading';
 import { ListOfFavorites } from '../components/ListOfFavorites';
 
 export const Favs = () => {
-  const { data: { favs = [] } = {}, loading } = useQuery(GET_FAVS);
+  const { data: { favs = [] } = {}, loading } = useQuery(GET_FAVS, {
+    fetchPolicy: 'cache-and-network',
+  });
 
   if (loading) {
     return <Loading />;
@@ -19,7 +21,7 @@ export const Favs = () => {
         title="Favoritos"
         description="Estos son todos tus animales favoritos 🐶"
       />
-      <ListOfFavorites list={favs} />
+      <ListOfFavorites favs={favs} />
     </>
   );
 };

@@ -3,10 +3,10 @@ import { Container } from './styles';
 
 import { Favorite } from '../Favorite';
 
-export const ListOfFavorites = ({ list = [] }) => {
+export const ListOfFavorites = ({ favs = [] }) => {
   return (
     <Container>
-      {list.map((item) => {
+      {favs.map((item) => {
         return <Favorite key={item.id} {...item} />;
       })}
     </Container>
