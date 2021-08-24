@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useMutation } from '@apollo/client';
 import { Context } from '../Context';
 
+import { Layout } from '../components/Layout';
 import { UserForm } from '../components/UserForm';
 import { HeaderSection } from '../components/HeaderSection';
 
@@ -51,7 +52,7 @@ export const NotRegisterUser = () => {
   };
 
   return (
-    <>
+    <Layout title="Login">
       <HeaderSection
         title="Acceso"
         description="Para acceder a esta sección debes haber iniciado sesión."
@@ -68,6 +69,6 @@ export const NotRegisterUser = () => {
         disabled={loginLoading}
         label="Iniciar sesión"
       />
-    </>
+    </Layout>
   );
 };
