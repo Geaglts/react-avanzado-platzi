@@ -1,10 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Layout } from '../components/Layout';
 import { ListOfcategories } from '../components/ListOfCategories';
 import { ListOfPhotoCards } from '../components/ListOfPhotoCards';
 
-export const Home = ({ id }) => {
+const HomePage = ({ id }) => {
   return (
     <Layout>
       <ListOfcategories />
@@ -12,3 +11,7 @@ export const Home = ({ id }) => {
     </Layout>
   );
 };
+
+export const Home = React.memo(HomePage, (prevProps, props) => {
+  return prevProps.id === props.id;
+});
