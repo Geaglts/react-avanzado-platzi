@@ -11,6 +11,7 @@ const Provider = ({ children }) => {
     activateAuth: (token) => {
       setIsAuth(true);
       window.sessionStorage.setItem('TOKEN', token);
+      window.location = '/';
     },
     removeAuth: () => {
       setIsAuth(false);

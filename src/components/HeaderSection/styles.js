@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
-  font-weight: lighter;
+  font-weight: normal;
 `;
 
 export const Description = styled.p`
