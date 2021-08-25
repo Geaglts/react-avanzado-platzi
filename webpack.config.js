@@ -28,4 +28,5 @@ module.exports = {
     },
     liveReload: true,
   },
+  devtool: 'eval-cheap-source-map',
 };

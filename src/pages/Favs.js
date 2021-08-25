@@ -7,7 +7,7 @@ import { HeaderSection } from '../components/HeaderSection';
 import { Loading } from '../components/Loading';
 import { ListOfFavorites } from '../components/ListOfFavorites';
 
-export const Favs = () => {
+export default () => {
   const { data: { favs = [] } = {}, loading } = useQuery(GET_FAVS, {
     fetchPolicy: 'cache-and-network',
   });
